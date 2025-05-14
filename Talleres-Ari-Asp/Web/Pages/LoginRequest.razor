@@ -1,0 +1,53 @@
+@page "/login"
+@using Web.Models
+@inject Web.Services.AuthService AuthService
+@using Talleres_Ari_Asp.Web.Services
+@inject SessionService SessionService
+@inject NavigationManager Nav
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+
+
+<h3>Iniciar Sesión</h3>
+
+<EditForm Model="@loginModel" OnValidSubmit="HandleLogin">
+   
+
+    <div class="mb-3">
+        <label class="form-label">Usuario</label>
+        <InputText class="form-control" @bind-Value="loginModel.UserName" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Contraseña</label>
+        <InputText type="password" class="form-control" @bind-Value="loginModel.Password" />
+    </div>
+
+    <button class="btn btn-primary">Entrar</button>
+</EditForm>
+
+@if (errorMessage != null)
+{
+    <div class="alert alert-danger">@errorMessage</div>
+}
+
+@code {
+    private LoginRequest loginModel = new();
+    private string? errorMessage;
+
+    private async Task HandleLogin()
+    {
+        var token = await AuthService.LoginAsync(loginModel);
+        if (!string.IsNullOrEmpty(token))
+        {
+            SessionService.SetToken(token);
+            Nav.NavigateTo("/"); // Puedes dirigirlo a otra página
+        }
+        else
+        {
+            errorMessage = "Credenciales incorrectas.";
+        }
+    }
+}

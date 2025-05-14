@@ -1,0 +1,6 @@
+@Talleres_Ari_Asp_HostAddress = http://localhost:5086
+
+GET {{Talleres_Ari_Asp_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

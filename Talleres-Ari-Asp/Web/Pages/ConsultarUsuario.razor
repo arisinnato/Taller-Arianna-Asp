@@ -1,0 +1,51 @@
+@page "/consultar-usuario"
+@inject AuthService AuthService
+@inject IJSRuntime JS
+@model Talleres_Ari_Asp.Web.Pages.ConsultarUsuario
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Talleres_Ari_Asp.Core.DTO;
+
+
+<h3>Información del Usuario</h3>
+
+@if (user != null)
+{
+    <div class="card p-3">
+        <p><strong>ID:</strong> @user.Id</p>
+        <p><strong>Nombre de usuario:</strong> @user.UserName</p>
+        <p><strong>Contraseña encriptada:</strong> @user.PasswordHash</p>
+    </div>
+}
+else if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger">@errorMessage</div>
+}
+else
+{
+    <p>Cargando datos del usuario...</p>
+}
+
+@code {
+    private UserRequest? user;
+    private string? errorMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var token = await JS.InvokeAsync<string>("localStorage.getItem", "authToken");
+        if (string.IsNullOrEmpty(token))
+        {
+            errorMessage = "No has iniciado sesión.";
+            return;
+        }
+
+        int userId = 1; 
+
+        user = await AuthService.GetUserByIdAsync(userId, token);
+
+        if (user == null)
+            errorMessage = "No se pudo obtener la información del usuario.";
+    }
+}

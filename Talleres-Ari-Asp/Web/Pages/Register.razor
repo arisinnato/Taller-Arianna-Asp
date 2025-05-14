@@ -1,0 +1,51 @@
+@page "/register"
+@inject NavigationManager Nav
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Web.Models
+@inject Web.Services.AuthService AuthService
+
+
+
+<h3>Registro de Usuario</h3>
+
+<EditForm Model="@registerModel" OnValidSubmit="@HandleRegister">
+    
+
+    <div class="mb-3">
+        <label class="form-label">Usuario</label>
+        <InputText class="form-control" @bind-Value="registerModel.UserName" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Contraseña</label>
+        <InputText type="password" class="form-control" @bind-Value="registerModel.Password" />
+    </div>
+
+    <button class="btn btn-primary">Registrarse</button>
+</EditForm>
+
+@if (errorMessage != null)
+{
+    <div class="alert alert-danger">@errorMessage</div>
+}
+
+@code {
+    private RegisterRequest registerModel = new();
+    private string? errorMessage;
+
+    private async Task HandleRegister()
+    {
+        var success = await AuthService.RegisterAsync(registerModel);
+        if (success)
+        {
+            Nav.NavigateTo("/login");
+        }
+        else
+        {
+            errorMessage = "Error al registrar usuario.";
+        }
+    }
+}
