@@ -87,7 +87,7 @@ builder.Services.AddHttpClient("ApiAutenticada", client =>
 .AddHttpMessageHandler<JwtAuthorizationMessageHandler>();
 
 
-// Habilitar CORS si usarás Blazor Web luego
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",

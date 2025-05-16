@@ -114,7 +114,7 @@ namespace WebAPI.Controllers
         }
     }
 
-    // Clases DTO fuera del controlador
+    
     public class UpdateRequest
     {
         public string? NewUserName { get; set; }
