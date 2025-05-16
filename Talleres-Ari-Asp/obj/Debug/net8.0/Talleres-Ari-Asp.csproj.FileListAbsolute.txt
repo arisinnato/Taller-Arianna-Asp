@@ -5,5 +5,3 @@ C:\Users\usuario\Downloads\TallerAri-Asp\Talleres-Ari-Asp\obj\Debug\net8.0\Talle
 C:\Users\usuario\Downloads\TallerAri-Asp\Talleres-Ari-Asp\obj\Debug\net8.0\Talleres-Ari-Asp.csproj.CoreCompileInputs.cache
 C:\Users\usuario\Downloads\TallerAri-Asp\Talleres-Ari-Asp\obj\Debug\net8.0\Talleres-Ari-Asp.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\usuario\Downloads\TallerAri-Asp\Talleres-Ari-Asp\obj\Debug\net8.0\Talleres-Ari-Asp.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\usuario\Downloads\TallerAri-Asp\Talleres-Ari-Asp\obj\Debug\net8.0\Talleres-Ari-Asp.RazorAssemblyInfo.cache
-C:\Users\usuario\Downloads\TallerAri-Asp\Talleres-Ari-Asp\obj\Debug\net8.0\Talleres-Ari-Asp.RazorAssemblyInfo.cs

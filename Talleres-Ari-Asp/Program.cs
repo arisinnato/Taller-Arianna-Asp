@@ -64,13 +64,21 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-
+builder.Services.Configure<JwtConfig>(builder.Configuration.GetSection("JwtConfig"));
 
 builder.Services.AddControllers();
 builder.Services.AddScoped<SessionService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddTransient<JwtAuthorizationMessageHandler>();
+
+builder.Services.AddScoped(sp => {
+    var client = new HttpClient { BaseAddress = new Uri("https://tu-api.com") };
+    var token = await localStorage.GetItemAsync<string>("jwtToken");
+    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+    return client;
+});
 
 builder.Services.AddHttpClient("ApiAutenticada", client =>
 {

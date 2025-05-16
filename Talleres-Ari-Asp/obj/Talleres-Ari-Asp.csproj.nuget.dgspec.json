@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\usuario\\Downloads\\TallerAri-Asp\\Talleres-Ari-Asp\\Talleres-Ari-Asp.csproj": {}
+    "C:\\Users\\usuario\\Downloads\\TallerAri-Asp\\Talleres-Ari-Asp\\Talleres-Ari-Asp.csproj": {}
   },
   "projects": {
-    "c:\\Users\\usuario\\Downloads\\TallerAri-Asp\\Talleres-Ari-Asp\\Talleres-Ari-Asp.csproj": {
+    "C:\\Users\\usuario\\Downloads\\TallerAri-Asp\\Talleres-Ari-Asp\\Talleres-Ari-Asp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\usuario\\Downloads\\TallerAri-Asp\\Talleres-Ari-Asp\\Talleres-Ari-Asp.csproj",
+        "projectUniqueName": "C:\\Users\\usuario\\Downloads\\TallerAri-Asp\\Talleres-Ari-Asp\\Talleres-Ari-Asp.csproj",
         "projectName": "Talleres-Ari-Asp",
-        "projectPath": "c:\\Users\\usuario\\Downloads\\TallerAri-Asp\\Talleres-Ari-Asp\\Talleres-Ari-Asp.csproj",
+        "projectPath": "C:\\Users\\usuario\\Downloads\\TallerAri-Asp\\Talleres-Ari-Asp\\Talleres-Ari-Asp.csproj",
         "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\usuario\\Downloads\\TallerAri-Asp\\Talleres-Ari-Asp\\obj\\",
+        "outputPath": "C:\\Users\\usuario\\Downloads\\TallerAri-Asp\\Talleres-Ari-Asp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -49,9 +49,17 @@
               "target": "Package",
               "version": "[8.0.4, )"
             },
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.3.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.11, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[9.0.5, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
@@ -60,6 +68,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             }
           },
           "imports": [

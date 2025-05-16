@@ -8,10 +8,10 @@ namespace Core.Interfaces.Repositories
 {
     public interface IUserRepository
     {
-        User? GetByUserName(string username);
-        User? GetById(int id);
+        User GetByEmail(string email);
+        User GetByUserName(string username);
+        User GetById(int id);
         void Add(User user);
         void Update(User user);
-        
     }
 }

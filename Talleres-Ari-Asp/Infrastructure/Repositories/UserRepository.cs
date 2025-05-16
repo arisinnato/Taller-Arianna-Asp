@@ -1,6 +1,5 @@
 using Core.Entities;
-using Core.Interfaces.Repositories;
-using Infrastructure.Data;
+using Core.Interfaces;
 
 namespace Infrastructure.Repositories
 {
@@ -8,33 +7,22 @@ namespace Infrastructure.Repositories
     {
         private readonly AppDbContext _context;
 
-        public UserRepository(AppDbContext context)
-        {
-            _context = context;
-        }
+        public UserRepository(AppDbContext context) => _context = context;
 
-
-        public async Task<User?> GetByIdAsync(int id)
-        {
-            return await _context.Users.FindAsync(id);
-        }
-
-        public async Task<User?> GetByUserNameAsync(string username)
-        {
-            return await _context.Users.FirstOrDefaultAsync(u => u.UserName == username);
-        }
-
-        public async Task<User> AddAsync(User user)
+        public User GetByEmail(string email) => _context.Users.FirstOrDefault(u => u.Email == email);
+        public User GetByUserName(string username) => _context.Users.FirstOrDefault(u => u.UserName == username);
+        public User GetById(int id) => _context.Users.Find(id);
+        
+        public void Add(User user)
         {
             _context.Users.Add(user);
-            await _context.SaveChangesAsync();
-            return user;
+            _context.SaveChanges();
         }
 
-        public async Task UpdateAsync(User user)
+        public void Update(User user)
         {
             _context.Users.Update(user);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
     }
 }

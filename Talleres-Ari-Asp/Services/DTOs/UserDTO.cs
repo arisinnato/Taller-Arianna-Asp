@@ -2,16 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
-namespace Core.DTO
+namespace Talleres_Ari_Asp.Services.DTOs
 {
     public class UserDto {
-    [Required(ErrorMessage = "El email es obligatorio")]
-    [EmailAddress]
+    [Required, EmailAddress]
     public string Email { get; set; }
 
-    [Required(ErrorMessage = "La contraseña es obligatoria")]
-    [MinLength(6)]
+    [Required, MinLength(6)]
     public string Password { get; set; }
 }
 }
